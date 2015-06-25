@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link href="loader/jquery.loader.css" rel="stylesheet">
+		<script src="loader/jquery.loader.js"></script>
+		<script>
+			function download()
+			{
+				$('body').loader('show');
+
+				var download_url =$("#url").val();
+				$.ajax({
+					type :"GET",
+					url: "/cgi-bin/download.pl",
+					contentType:'text/html',
+					dataType:'html',
+					data :{ url :download_url}
+					}).done(function(result) {
+					$('#response').html(result);
+					$('body').loader('hide');
+
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<h1> Youtube Video Downloader <h1>
+					</div>
+					<div class ="row">
+						<div class="col-md-6" style ="margin-top: 50px;">
+							<form id ="download"  action= "" >
+								<input type="text" name= "url" class="form-control" id= "url" placeholder ="URL">
+							</div>
+							<div class="col-md-6" style =" margin-top: 50px;">
+								<button type="button" class="btn btn-primary" onclick = "download()">Download</button>
+							</div>
+						</form>
+					</div>
+					<div class = "row">
+						<p style = "color :red; margin-left:20px"> Enter the URL to be downloaded. </p>
+					</div>
+					<br/>
+					<div class ="col-md-6">
+						<p id ='response' >. </p>
+					</div>
+				</div>
+			</body>
+		</html>
+

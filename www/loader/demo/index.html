@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" /><![endif]-->
+    
+    <title>jQuery loader.js Plugin Demos</title>
+    
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="../jquery.loader.css" rel="stylesheet" />
+
+    <style type="text/css">
+    .container{
+        padding: 10px 0;
+    }
+
+    .hero-unit {
+        position: relative;
+    }
+    </style>
+    
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+
+    <div class="container">
+    
+        <div class="hero-unit">
+            <h1>jQuery loader.js Plugin Demos</h1>
+            <div class="jquery-script-ads" style="margin:30px auto;"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+        </div>
+        
+        <div class="btn-group">
+            <button class="btn btn-info" type="button">Show zone loader</button>
+            <button class="btn btn-warning" type="button">Hide zone loader</button>
+            <button class="btn btn-danger" type="button">Show/Hide general loader</button>
+        </div>
+
+        <br/><br/>
+        
+    </div>
+    
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../jquery.loader.js"></script>
+    <script type="text/javascript">
+    (function ($) {
+        "use strict";
+
+        $(function () { // short document ready
+            
+            $('.btn-group')
+            .on('click', '.btn-info', function () {
+                $('.hero-unit').loader('show');
+            })
+            .on('click', '.btn-warning', function () {
+                $('.hero-unit').loader('hide');
+            })
+            .on('click', '.btn-danger', function () {
+                if ($('body').hasClass('loading')) {
+                    $('body').removeClass('loading')
+                    .loader('hide');
+                } else {
+                    $('body').addClass('loading')
+                    .loader('show', {
+                        overlay: true
+                    });
+                }
+            });
+            
+        });
+    } (jQuery));
+    </script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
